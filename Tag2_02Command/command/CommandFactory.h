@@ -7,6 +7,8 @@
 #include "Command.h"
 #include "AddCommand.h"
 #include "PrintCommand.h"
+#include "SubCommand.h"
+#include "ClearCommand.h"
 
 
 namespace command {
@@ -22,6 +24,14 @@ namespace command {
             }
             if(tokens[0] == "Print"){
                 result = std::make_shared<PrintCommand>();
+                result->parse(tokens);
+            }
+            if(tokens[0] == "Sub"){
+                result = std::make_shared<SubCommand>();
+                result->parse(tokens);
+            }
+            if(tokens[0] == "Clear"){
+                result = std::make_shared<ClearCommand>();
                 result->parse(tokens);
             }
             return result;
