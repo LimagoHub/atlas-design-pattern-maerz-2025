@@ -21,6 +21,9 @@ int main() {
     tiere::Schwein piggy{"Miss Piggy"};
 
     // Register PropChanged
+    piggy.addPropertyChangedEventListener([](const PropertyChangedEvent<tiere::Schwein> &event){
+        std::cout << event << std::endl;
+    });
 
     piggy.addPigTooFatListener([&metzger](tiere::Schwein *s){metzger.schlachten(s);});
     piggy.addPigTooFatListener([&spediteuer](tiere::Schwein *s){spediteuer.fahren(s);});
