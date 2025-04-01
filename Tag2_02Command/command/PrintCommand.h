@@ -1,14 +1,12 @@
 //
-// Created by JoachimWagner on 01.04.2025.
+// Created by JoachimWagner on 14.01.2025.
 //
 
 #pragma once
-#include "AbstractCommand.h"
-#include "../math/Calculator.h"
-
+#include "AbstractQuery.h"
 namespace command {
-    using Calc=math::Calculator;
-    class PrintCommand: public AbstractCommand{
+
+    class PrintCommand :public AbstractQuery{
     public:
         auto execute() -> void override {
             Calc::getInstance()->print();

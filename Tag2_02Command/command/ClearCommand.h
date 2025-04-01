@@ -1,31 +1,27 @@
 //
-// Created by JoachimWagner on 01.04.2025.
+// Created by JoachimWagner on 29.10.2024.
 //
 
 #pragma once
-#include "AbstractCommand.h"
 #include "../math/Calculator.h"
+
+#include "AbstractQuery.h"
 
 using Calc=math::Calculator;
 
 namespace command {
 
-    class ClearCommand: public AbstractCommand {
-    private:
-        double oldValue;
+    class ClearCommand : public AbstractCommand {
+
     public:
-        auto undo() -> void override {
-            Calc::getInstance()->setMemory(oldValue);
+        ClearCommand()=default;
+        ~ClearCommand() override = default;
+
+
+        void doAction() override {
+            Calc ::getInstance()->clear();
         }
 
-        auto isQuery() -> bool override {
-            return false;
-        }
 
-        auto execute() -> void override {
-            oldValue = Calc::getInstance()->getMemory();
-            Calc::getInstance()->clear();
-        }
     };
-
-} // command
+}

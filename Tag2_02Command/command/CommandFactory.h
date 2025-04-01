@@ -1,15 +1,16 @@
 //
-// Created by JoachimWagner on 01.04.2025.
+// Created by JoachimWagner on 14.01.2025.
 //
 
 #pragma once
+
 #include <regex>
 #include "Command.h"
 #include "AddCommand.h"
 #include "PrintCommand.h"
-#include "SubCommand.h"
 #include "ClearCommand.h"
-
+#include "../../../atlas-design-pattern-maerz-2025/Tag2_02Command/command/SubCommand.h"
+#include <memory>
 
 namespace command {
     using COMMAND = std::shared_ptr<command::Command>;
@@ -18,6 +19,7 @@ namespace command {
         static COMMAND create(std::string line) {
             COMMAND result;
             const StringVector tokens =tokenizeLine(line);
+
             if(tokens[0] == "Add"){
                 result = std::make_shared<AddCommand>();
                 result->parse(tokens);
@@ -26,12 +28,12 @@ namespace command {
                 result = std::make_shared<PrintCommand>();
                 result->parse(tokens);
             }
-            if(tokens[0] == "Sub"){
-                result = std::make_shared<SubCommand>();
-                result->parse(tokens);
-            }
             if(tokens[0] == "Clear"){
                 result = std::make_shared<ClearCommand>();
+                result->parse(tokens);
+            }
+            if(tokens[0] == "Sub"){
+                result = std::make_shared<SubCommand>();
                 result->parse(tokens);
             }
             return result;
@@ -46,7 +48,6 @@ namespace command {
             );
             return result;
         }
-
     };
 
 } // command
