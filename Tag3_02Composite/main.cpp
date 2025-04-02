@@ -36,6 +36,7 @@ int main() {
     e2->append(e2_1);
     e2->append(e2_2);
 
-    travers(root);
+    //travers(root);
+    //root->ausgabe();
     return 0;
 }

@@ -1,0 +1,82 @@
+
+================================================================================ print visitor
+-----------------------------> DEBUG:  the end
+Kontogruppe: name: root #0
+-----------------------------> DEBUG:  go down from #0 to #1
+Kontogruppe: name: e1 #1
+Kontogruppe: name: e2 #2
+-----------------------------> DEBUG:  go down from #1 to #2
+Konto: name: e2_1 #3, saldo: 10
+Konto: name: e2_2 #4, saldo: 100
+-----------------------------> DEBUG:  go up from #2 to #1
+Kontogruppe: name: e3 #5
+-----------------------------> DEBUG:  go down from #1 to #2
+Kontogruppe: name: e3_1 #6
+Kontogruppe: name: e3_2 #7
+Kontogruppe: name: e3_3 #8
+-----------------------------> DEBUG:  go up from #2 to #1
+-----------------------------> DEBUG:  go up from #1 to #0
+-----------------------------> DEBUG:  the end
+-----------------------------> DEBUG:  the end
+
+================================================================================ run iterator "root #0..#8"
+-----------------------------> DEBUG:  the end
+Kontogruppe: name: root #0
+-----------------------------> DEBUG:  go down from #0 to #1
+Kontogruppe: name: e1 #1
+Kontogruppe: name: e2 #2
+-----------------------------> DEBUG:  go down from #1 to #2
+Konto: name: e2_1 #3, saldo: 10
+Konto: name: e2_2 #4, saldo: 100
+-----------------------------> DEBUG:  go up from #2 to #1
+Kontogruppe: name: e3 #5
+-----------------------------> DEBUG:  go down from #1 to #2
+Kontogruppe: name: e3_1 #6
+Kontogruppe: name: e3_2 #7
+Kontogruppe: name: e3_3 #8
+-----------------------------> DEBUG:  go up from #2 to #1
+-----------------------------> DEBUG:  go up from #1 to #0
+-----------------------------> DEBUG:  the end
+-----------------------------> DEBUG:  the end
+
+================================================================================ run iterator "e1 #1"
+-----------------------------> DEBUG:  the end
+Kontogruppe: name: e1 #1
+-----------------------------> DEBUG:  go up from #0 to #-1
+-----------------------------> DEBUG:  the end
+-----------------------------> DEBUG:  the end
+
+================================================================================ run iterator "e2 #2..#4"
+-----------------------------> DEBUG:  the end
+Kontogruppe: name: e2 #2
+-----------------------------> DEBUG:  go down from #0 to #1
+Konto: name: e2_1 #3, saldo: 10
+Konto: name: e2_2 #4, saldo: 100
+-----------------------------> DEBUG:  go up from #1 to #0
+-----------------------------> DEBUG:  the end
+-----------------------------> DEBUG:  the end
+
+================================================================================ run iterator "e3 #5..#8"
+-----------------------------> DEBUG:  the end
+Kontogruppe: name: e3 #5
+-----------------------------> DEBUG:  go down from #0 to #1
+Kontogruppe: name: e3_1 #6
+Kontogruppe: name: e3_2 #7
+Kontogruppe: name: e3_3 #8
+-----------------------------> DEBUG:  go up from #1 to #0
+-----------------------------> DEBUG:  the end
+-----------------------------> DEBUG:  the end
+
+================================================================================ run iterator "e2_1 #3"
+-----------------------------> DEBUG:  the end
+Konto: name: e2_1 #3, saldo: 10
+-----------------------------> DEBUG:  go up from #0 to #-1
+-----------------------------> DEBUG:  the end
+-----------------------------> DEBUG:  the end
+
+================================================================================ run iterator "e2_2 #4"
+-----------------------------> DEBUG:  the end
+Konto: name: e2_2 #4, saldo: 100
+-----------------------------> DEBUG:  go up from #0 to #-1
+-----------------------------> DEBUG:  the end
+-----------------------------> DEBUG:  the end
