@@ -7,7 +7,7 @@
 #include<vector>
 
 #include <string>
-
+// AbstractKontoNode
 class AbstractNode: public std::enable_shared_from_this<AbstractNode>{
 public:
     using AbstractNodeShared = std::shared_ptr<AbstractNode>;

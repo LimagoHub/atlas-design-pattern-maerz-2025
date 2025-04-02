@@ -5,8 +5,11 @@
 #pragma once
 #include "AbstractNode.h"
 
-class Leaf:public AbstractNode {
 
+// Konto
+class Leaf:public AbstractNode {
+private:
+    double saldo{0};
 public:
     using AbstractNode::AbstractNode;
 

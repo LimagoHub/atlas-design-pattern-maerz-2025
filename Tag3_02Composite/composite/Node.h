@@ -4,7 +4,7 @@
 
 #pragma once
 #include "AbstractNode.h"
-
+// KontoGruppe
 class Node : public AbstractNode{
 
 public:
